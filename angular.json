@@ -43,7 +43,10 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "stylePreprocessorOptions": {
+                "includePaths": ["src/styles"]
+              }
             },
             "development": {
               "buildOptimizer": false,
@@ -51,7 +54,10 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "stylePreprocessorOptions": {
+                "includePaths": ["src/styles"]
+              }
             }
           },
           "defaultConfiguration": "production"

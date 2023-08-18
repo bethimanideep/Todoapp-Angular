@@ -1,0 +1,43 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="p-8 bg-white rounded-lg shadow-md w-2/3"> <!-- Adjust the width to w-2/3 -->
+      <h1 class="text-3xl font-bold mb-4">Todo App</h1>
+      <div class="mb-4 flex items-center">
+        <input
+          class="border rounded p-2 w-full"
+          placeholder="Add a new task..."
+          [(ngModel)]="newTask"
+        />
+        <button
+          class="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 transition"
+          (click)="addTask()"
+        >
+          Add
+        </button>
+      </div>
+      <ul>
+        <li
+          *ngFor="let task of tasks"
+          class="flex items-center justify-between py-2 border-b hover:bg-gray-50 transition"
+        >
+          <div
+            [ngClass]="{ 'line-through': task.completed }"
+            class="cursor-pointer"
+            (click)="markAsCompleted(task)"
+          >
+            {{ task.content }}
+          </div>
+          <div>
+            <button
+              class="text-green-500 mr-2"
+              (click)="markAsCompleted(task)"
+              [disabled]="task.completed"
+            >
+              Mark Complete
+            </button>
+            <button class="text-red-500" (click)="deleteTask(task)">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
